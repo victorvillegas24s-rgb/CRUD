@@ -8,6 +8,10 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'crear') {
     $nombre = pg_escape_string($con, $_POST['nombre']); 
     $tipo = pg_escape_string($con, $_POST['tipo']);
     $edad = (int)$_POST['edad'];
+
+    $query_insert = "INSERT INTO public.mascotas (nombre, tipo, edad) VALUES ('$nombre', '$tipo', $edad)";
+    pg_query($con, $query_insert);
+
 }
 
 $query = "SELECT id, nombre, tipo, edad FROM public.mascotas";
