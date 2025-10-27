@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <?php require "bd.php"?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado Mascotas Básico</title>
@@ -42,12 +43,43 @@
                 </tbody>
             </table>
         </div>
-        <div class="d-flex justify-content-end">
-            <a href="crear.php" class="btn btn-primary">Registrar Nueva Mascota</a>
+        </div>
+        <?= $mensaje_crud ?> 
+        <div class="d-flex justify-content-end mb-3">
+            <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#formularioCrear" aria-expanded="false" aria-controls="formularioCrear">
+                Registrar Nueva Mascota
+            </button>
+        </div>
+        <div class="collapse" id="formularioCrear">
+            <div class="card card-body mb-4">
+                <h3 class="card-title">Nuevo Registro</h3>
+                <form method="POST" action="crud.php">
+                    <input type="hidden" name="accion" value="crear">
+                    
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tipo" class="form-label">Tipo</label>
+                            <input type="text" class="form-control" id="tipo" name="tipo" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="edad" class="form-label">Edad</label>
+                            <input type="number" class="form-control" id="edad" name="edad" required min="1">
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <?php
     pg_close($con); 
-    ?>
+    ?><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+        
