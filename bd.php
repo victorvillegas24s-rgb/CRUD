@@ -6,7 +6,8 @@ $mensaje_crud = "";
 
 if (isset($_POST['accion']) && $_POST['accion'] == 'crear') {
     $nombre = pg_escape_string($con, $_POST['nombre']); 
-
+    $tipo = pg_escape_string($con, $_POST['tipo']);
+    $edad = (int)$_POST['edad'];
 }
 
 $query = "SELECT id, nombre, tipo, edad FROM public.mascotas";
