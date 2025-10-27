@@ -1,0 +1,21 @@
+button{
+    background-color: steelblue;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    border-color: grey 70px outset;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 170px;        
+    height: 40px;        
+    font-size: 24px;     
+    padding: 5px 5px;
+}
+
+button:hover{
+    background-color: beige;
+    color: black;
+    border-color: grey 70px inset;
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: ease 0.8s;
+}
