@@ -36,9 +36,27 @@
                         <td><?= $mascota['edad'] ?></td>
                         <td>
                             <a href="editar.php?id=<?= $mascota['id'] ?>" class="btn btn-secondary btn-sm">Editar</a>
-                            <a href="eliminar.php?id=<?= $mascota['id'] ?>" class="btn btn-warning btn-sm">Eliminar</a>
+                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarModal<?= $mascota['id'] ?>">Eliminar</button>
                         </td>
                     </tr>
+                    <div class="modal fade" id="eliminarModal<?= $mascota['id'] ?>" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                          <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="eliminarModalLabel">Confirmar Eliminación</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <p>¿Estás seguro de que quieres ELIMINAR a <?= $mascota['nombre'] ?>?</p>
+                            <p class="text-danger small">Esta acción es irreversible.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <a href="crud.php?accion=eliminar&id=<?= $mascota['id'] ?>" class="btn btn-danger">Sí, Eliminar</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <?php endwhile; ?>
                 </tbody>
             </table>
