@@ -16,7 +16,8 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'crear') {
 
 if (isset($_GET['id'])) {
     $id_a_eliminar = (int)$_GET['id'];
-
+    $query_delete = "DELETE FROM public.mascotas WHERE id = $id_a_eliminar";
+    pg_query($con, $query_delete);
 
 }
 
