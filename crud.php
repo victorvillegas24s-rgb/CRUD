@@ -57,7 +57,6 @@
                         </div>
                       </div>
                     </div>
-
                     <div class="modal fade" id="editarModal<?= $mascota['id'] ?>" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
