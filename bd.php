@@ -22,6 +22,8 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_POST['id']) && $_POST['accion'] == 'actualizar') {
+    $id_a_actualizar = (int)$_POST['id'];
+    $nombre_nuevo = pg_escape_string($con, $_POST['nombre']);
 
 }
 
