@@ -14,6 +14,12 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'crear') {
 
 }
 
+if (isset($_GET['id'])) {
+    $id_a_eliminar = (int)$_GET['id'];
+
+
+}
+
 $query = "SELECT id, nombre, tipo, edad FROM public.mascotas";
 $resultado = pg_query($con, $query);
 
