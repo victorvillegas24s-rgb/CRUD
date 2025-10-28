@@ -35,7 +35,7 @@
                         <td><?= $mascota['tipo'] ?></td>
                         <td><?= $mascota['edad'] ?></td>
                         <td>
-                            <a href="editar.php?id=<?= $mascota['id'] ?>" class="btn btn-secondary btn-sm">Editar</a>
+                            <button type="button" class="btn btn-secondary btn-sm"data-bs-toggle="modal"data-bs-target="#editarModal<?= $mascota['id'] ?>"> Editar</button>
                             <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarModal<?= $mascota['id'] ?>">Eliminar</button>
                         </td>
                     </tr>
@@ -54,6 +54,40 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <a href="crud.php?accion=eliminar&id=<?= $mascota['id'] ?>" class="btn btn-danger">Sí, Eliminar</a>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="modal fade" id="editarModal<?= $mascota['id'] ?>" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header bg-secondary text-white">
+                            <h5 class="modal-title" id="editarModalLabel">Editar Mascota: <?= $mascota['nombre'] ?></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <form method="POST" action="crud.php">
+                            <div class="modal-body">
+                                <input type="hidden" name="accion" value="actualizar">
+                                <input type="hidden" name="id" value="<?= $mascota['id'] ?>">
+                                
+                                <div class="mb-3">
+                                    <label for="nombre_<?= $mascota['id'] ?>" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre_<?= $mascota['id'] ?>" name="nombre" value="<?= $mascota['nombre'] ?>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tipo_<?= $mascota['id'] ?>" class="form-label">Tipo</label>
+                                    <input type="text" class="form-control" id="tipo_<?= $mascota['id'] ?>" name="tipo" value="<?= $mascota['tipo'] ?>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edad_<?= $mascota['id'] ?>" class="form-label">Edad</label>
+                                    <input type="number" class="form-control" id="edad_<?= $mascota['id'] ?>" name="edad" value="<?= $mascota['edad'] ?>" required min="1">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
