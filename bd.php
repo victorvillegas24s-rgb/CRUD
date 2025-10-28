@@ -27,6 +27,9 @@ if (isset($_POST['id']) && $_POST['accion'] == 'actualizar') {
     $tipo_nuevo = pg_escape_string($con, $_POST['tipo']);
     $edad_nueva = (int)$_POST['edad'];
 
+    $query_update = "UPDATE public.mascotas SET nombre = '$nombre_nuevo', tipo = '$tipo_nuevo', edad = $edad_nueva WHERE id = $id_a_actualizar";
+    pg_query($con, $query_update);
+    
 }
 
 $query = "SELECT id, nombre, tipo, edad FROM public.mascotas";
