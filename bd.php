@@ -21,6 +21,10 @@ if (isset($_GET['id'])) {
 
 }
 
+if (isset($_POST['id']) && $_POST['accion'] == 'actualizar') {
+
+}
+
 $query = "SELECT id, nombre, tipo, edad FROM public.mascotas";
 $resultado = pg_query($con, $query);
 
