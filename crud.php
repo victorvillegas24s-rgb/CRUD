@@ -4,7 +4,7 @@
     <?php require "bd.php"?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado Mascotas Básico</title>
+    <title>Listado Mascotas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <style> 
         .container { max-width: 900px; } 
@@ -96,7 +96,7 @@
         </div>
         </div>
         <?= $mensaje_crud ?> 
-        <div class="d-flex justify-content-end mb-3">
+        <div class="d-flex justify-content-end mb-5,">
             <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#formularioCrear" aria-expanded="false" aria-controls="formularioCrear">
                 Registrar Nueva Mascota
             </button>
